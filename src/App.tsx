@@ -1,9 +1,9 @@
-import TodoApp from "./components/TodoApp";
+import CouterReduxTest from "./components/CouterReduxTest";
 
 const App = () => {
   return (
     <>
-      <TodoApp></TodoApp>
+      <CouterReduxTest></CouterReduxTest>
     </>
   );
 };
