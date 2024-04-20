@@ -8,7 +8,7 @@ export default {
     extend: {},
     colors: {
       primary: '#1DC071',
-      seconday: '#6F49FD',
+      secondary: '#6F49FD',
       text1: '#171725',
       text2: '#4B5264',
       text3: '#808191',
@@ -20,7 +20,7 @@ export default {
       stock: '#F1F1F3',
       lite: '#FCFCFD',
       error: '#EB5757',
-      darkbg: '#13131A',
+      darkBg: '#13131A',
       darkSecondary: '#1C1C24',
       softDark: '#22222C',
       darkSoft: '#24242C',
