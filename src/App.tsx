@@ -1,9 +1,8 @@
-import CouterReduxTest from "./components/CouterReduxTest";
+// import CouterReduxTest from "./components/CouterReduxTest";
 
 const App = () => {
   return (
     <>
-      <CouterReduxTest></CouterReduxTest>
     </>
   );
 };

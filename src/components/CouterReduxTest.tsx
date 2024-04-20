@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../app/app/store";
+import { RootState } from "../app/store";
 import { decrement, increment } from "../features/counter/counterSlice";
 
 const CouterReduxTest = () => {
