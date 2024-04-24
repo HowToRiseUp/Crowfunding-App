@@ -1,9 +1,11 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { withErrorBoundary } from 'react-error-boundary'
+import ErrorFallback from "../components/common/ErrorFallback";
 
 interface LayoutAuthenticationProps {
+    header: string,
     children: ReactNode,
-    header: string
 }
 
 
@@ -16,11 +18,12 @@ const LayoutAuthentication = ({ children, header }: LayoutAuthenticationProps) =
             <div className="ellipse w-[2838px] h-[2838px] bg-secondary rounded-full z-[-1] absolute opacity-[0.03] left-[-6%] top-1/4"></div>
             <div className="max-w-[556px] rounded-xl bg-white mx-auto z-1 px-[63px] py-[50px]">
                 <div className="text-[20px] font-semibold text-center mb-[5px] lg:mb-[10px]">{header}</div>
-
                 {children}
             </div>
         </div>
     );
 };
 
-export default LayoutAuthentication;
+export default withErrorBoundary(LayoutAuthentication, {
+    FallbackComponent: ErrorFallback
+});
