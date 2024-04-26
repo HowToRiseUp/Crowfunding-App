@@ -3,7 +3,7 @@ import { useController } from "react-hook-form";
 interface InputProps {
     control: any,
     name: string,
-    type: string,
+    type: React.HTMLInputTypeAttribute | undefined,
     placeholder?: string,
     id?: string
 }

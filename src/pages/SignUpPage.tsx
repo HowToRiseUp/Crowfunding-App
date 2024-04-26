@@ -3,9 +3,27 @@ import LayoutAuthentication from "../layout/LayoutAuthentication";
 import { useForm } from "react-hook-form"
 import { Input } from "../components/input";
 import { Label } from "../components/label";
+import FormGroup from "../components/common/FormGroup";
+import Button from "../components/button";
+
+type FormValues = {
+    FullName: string,
+    Email: string,
+    Password: string,
+}
 
 const SignUpPage = () => {
-    const { control } = useForm()
+    const { handleSubmit, control } = useForm<FormValues>({
+        defaultValues: {
+            FullName: '',
+            Email: '',
+            Password: ''
+        }
+    })
+    const onSubmit = (data: FormValues) => {
+        console.log(data)
+    }
+
 
     return (
         <>
@@ -21,12 +39,23 @@ const SignUpPage = () => {
                     <span className="py-[13px] text-center text-base font-bold text-text2">Sign up with google</span>
                 </div>
                 <div className="text-text2 lg:text-sm text-xs text-center p-[10px]">Or sign up with email</div>
-                <form>
-                    <div className="flex flex-col">
-                        <Label htmlFor="FirstName">Full Name *</Label>
-                        <Input control={control} type="text" id="FirstName" name="FirstName" placeholder="Jhon Doe" />
-                    </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <FormGroup>
+                        <Label htmlFor="FullName">Full Name *</Label>
+                        <Input control={control} type="text" id="FullName" name="FullName" placeholder="John Doe" />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="Email">Email *</Label>
+                        <Input control={control} type="email" id="Email" name="Email" placeholder="example@gmail.com" />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="Password">Password *</Label>
+                        <Input control={control} type="password" id="Password" name="Password" placeholder="Create a password" />
+                    </FormGroup>
+                    <Button type="submit" className="w-full">Create my account</Button>
                 </form>
+
+
             </LayoutAuthentication>
         </>
     );
