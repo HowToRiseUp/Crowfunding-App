@@ -5,11 +5,14 @@ import { Input } from "../components/input";
 import { Label } from "../components/label";
 import FormGroup from "../components/common/FormGroup";
 import Button from "../components/button";
+import CheckBox from "../components/checkBox";
+import { useState } from "react";
 
 type FormValues = {
     FullName: string,
     Email: string,
     Password: string,
+    term: boolean
 }
 
 const SignUpPage = () => {
@@ -17,14 +20,18 @@ const SignUpPage = () => {
         defaultValues: {
             FullName: '',
             Email: '',
-            Password: ''
+            Password: '',
+            term: false,
         }
     })
     const onSubmit = (data: FormValues) => {
         console.log(data)
     }
 
-
+    const [acceptTerm, setAcceptTerm] = useState(false)
+    const handleToggleTerm = () => {
+        setAcceptTerm(acceptTerm => !acceptTerm)
+    }
     return (
         <>
             <LayoutAuthentication header="Sign Up">
@@ -52,6 +59,17 @@ const SignUpPage = () => {
                         <Label htmlFor="Password">Password *</Label>
                         <Input control={control} type="password" id="Password" name="Password" placeholder="Create a password" />
                     </FormGroup>
+                    <CheckBox control={control} name="term" checked={acceptTerm} onClick={handleToggleTerm}>
+                        <p className="flex-1 text-xs lg:text-sm text-text2 dark:text-text3">
+                            I agree to the
+                            <span className="underline text-secondary">
+                                {" "}
+                                Terms of Use
+                            </span>{" "}
+                            and have read and understand the
+                            <span className="underline text-secondary"> Privacy policy.</span>
+                        </p>
+                    </CheckBox>
                     <Button type="submit" className="w-full">Create my account</Button>
                 </form>
 

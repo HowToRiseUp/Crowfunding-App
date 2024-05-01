@@ -9,7 +9,7 @@ interface InputProps {
 }
 
 const Input = (props: InputProps) => {
-    const { field, fieldState } = useController({
+    const { field } = useController({
         name: props.name,
         control: props.control,
         defaultValue: "",
