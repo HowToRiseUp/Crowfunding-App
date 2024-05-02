@@ -1,4 +1,6 @@
+
 export default {
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -24,7 +26,8 @@ export default {
       softDark: '#22222C',
       darkSoft: '#24242C',
       darkStroke: '#3A3A43',
-      darkRed: '#422C32'
+      darkRed: '#422C32',
+      transparent: 'transparent',
     }
   },
   plugins: [],

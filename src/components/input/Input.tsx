@@ -6,17 +6,21 @@ interface InputProps {
     type: React.HTMLInputTypeAttribute | undefined,
     placeholder?: string,
     id?: string
+    errors?: any
 }
 
-const Input = (props: InputProps) => {
+const Input = ({ type, id, name, placeholder, errors, control }: InputProps) => {
     const { field } = useController({
-        name: props.name,
-        control: props.control,
+        name,
+        control,
         defaultValue: "",
     });
     return (
         <div className="relative">
-            <input type={props.type} {...field} id={props.id} placeholder={props.placeholder} className="px-[25px] py-[15px] placeholder:text-text4 border border-stock rounded-[10px] w-full text-text1 text-sm mb-[10px]" />
+            <input type={type} {...field} id={id} placeholder={placeholder} className={`px-[25px] py-[15px] placeholder:text-text4 dark:placeholder:text-text3 dark:border-darkStroke border  rounded-[10px]  w-full  text-text1 text-sm mb-[10px] dark:text-white 
+            ${errors[name]?.message ? 'placeholder:text-transparent dark:placeholder:text-transparent dark:text-transparent text-transparent border-error dark:border-error focus:text-text1 focus:dark:text-white' : 'border-stock'}
+            `} />
+            <div className="absolute top-2/4 -translate-y-3/4 left-[25px] select-none pointer-events-none error-message text-error text-sm">{errors[name]?.message}</div>
         </div>
     );
 };
