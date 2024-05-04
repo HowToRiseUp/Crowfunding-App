@@ -11,7 +11,10 @@ const cors = require("cors");
 app.use(cors());
 app.use("/api", jsonServer.defaults(), jsonServer.router("db.json"));
 app.get("/api/campaigns", verifyToken, (req, res) => {
-  res.json(database.campaigns);
+  res.status(200).json({
+    data: database.campaigns,
+    number: "1"
+  });
 });
 
-app.listen(4001, () => console.log("Server started on port 4001"));
+app.listen(4001, () => console.log("Server started on port http://localhost:4001/api/"));

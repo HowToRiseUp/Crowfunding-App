@@ -6,7 +6,7 @@ import CampaignsApi from "./api/apiCampaigns";
 
 const App = () => {
   useEffect(() => {
-    CampaignsApi.getAll().then((res) => console.log(res)
+    CampaignsApi.getAll().then((res) => console.log(res.data.map(item => (item.title)))
     )
   }, [])
   return (
