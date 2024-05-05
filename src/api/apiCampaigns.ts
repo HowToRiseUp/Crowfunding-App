@@ -12,5 +12,21 @@ const CampaignsApi = {
       },
     });
   },
+  add(data: Campaign): Promise<ListResponse<Campaign>> {
+    const url = "campaigns";
+    return axiosClient.post(url, {
+      data,
+    });
+  },
+  update(data: Campaign): Promise<ListResponse<Campaign>> {
+    const url = "campaigns";
+    return axiosClient.patch(url, {
+      data,
+    });
+  },
+  remove(id: string): Promise<any> {
+    const url = `campaigns/${id}`;
+    return axiosClient.delete(url);
+  },
 };
 export default CampaignsApi;
