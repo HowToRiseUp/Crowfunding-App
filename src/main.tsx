@@ -6,6 +6,7 @@ import { store } from "./app/store.ts";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignUpPage from "./pages/SignUpPage.tsx";
 import SignInPage from "./pages/SignInPage.tsx";
+import DashboardPage from "./pages/DashboardPage.tsx";
 
 
 const router = createBrowserRouter([
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App></App>
+        element: <DashboardPage></DashboardPage>
       },
       {
         path: "/sign-up",
