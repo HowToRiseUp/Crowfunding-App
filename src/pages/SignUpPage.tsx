@@ -9,6 +9,7 @@ import CheckBox from "../components/checkBox";
 import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
+import { useDispatch } from "react-redux";
 
 type FormValues = {
     fullName: string,
@@ -37,7 +38,9 @@ const SignUpPage = () => {
         },
         resolver: yupResolver(schema),
     })
+
     const onSubmit = async (data: FormValues) => {
+
         console.log(data);
     }
     const [acceptTerm, setAcceptTerm] = useState(false)

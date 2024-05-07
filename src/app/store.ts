@@ -4,12 +4,14 @@ import logger from "redux-logger";
 
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./rootSaga";
+import authReducer from "../features/auth/authSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(sagaMiddleware),

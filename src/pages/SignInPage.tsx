@@ -7,6 +7,8 @@ import FormGroup from "../components/common/FormGroup";
 import Button from "../components/button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
+import { authActions } from "../features/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 type FormValues = {
     email: string,
@@ -30,12 +32,20 @@ const SignInPage = () => {
         },
         resolver: yupResolver(schema),
     })
+    const dispatch = useDispatch()
+
     const onSubmit = async (data: FormValues) => {
+        dispatch(authActions.login(
+            {
+                email: '',
+                password: '',
+            }
+        ))
         console.log(data);
     }
-
     return (
         <>
+            <Button type="button" onClick={() => { dispatch(authActions.logout()) }} >Logout</Button>
             <LayoutAuthentication header="Welcome Back!">
                 <p className="text-center text-text3 text-xs lg:text-sm mb-[25px] lg:mb-[30px]">Dont have an account? <Link className="text-primary" to="/sign-up">Sign up</Link></p>
                 <div className="cursor-pointer flex items-center justify-center gap-[10px] border dark:border-darkStroke border-stock rounded-[10px] mb-[10px] ">
