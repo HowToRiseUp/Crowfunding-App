@@ -1,3 +1,4 @@
+import DashboardSidebar from "../models/dashboard/DashboardSidebar";
 import DashboardTopbar from "../models/dashboard/DashboardTopbar";
 
 interface LayoutDashboardProps {
@@ -8,7 +9,10 @@ const LayoutDashboard = ({ children }: LayoutDashboardProps) => {
     return (
         <div className="p-10">
             <DashboardTopbar></DashboardTopbar>
-            {children}
+            <div className="flex gap-10 items-start justify-start">
+                <DashboardSidebar></DashboardSidebar>
+                {children}
+            </div>
         </div>
     );
 };

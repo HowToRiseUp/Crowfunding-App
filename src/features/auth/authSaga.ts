@@ -1,31 +1,32 @@
-import { fork, take } from "redux-saga/effects";
+import { call, delay, fork, take } from "redux-saga/effects";
 import { LoginPayload, authActions } from "./authSlice";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 function* handleLogin(payload: LoginPayload) {
+  yield delay(2000);
+  //Call APi
   console.log("Login: ", payload);
+  localStorage.setItem("access_token", "fake_token");
 }
 function* handleLogout() {
+  yield delay(500);
   console.log("logout");
+  localStorage.removeItem("access_token");
 }
 
 function* WatchLoginFlow() {
   while (true) {
-    const action: PayloadAction<LoginPayload> = yield take(
-      authActions.login.type
-    );
-    console.log("🚀 ~ function*WatchLoginFlow ~ action:", action);
-    yield fork(handleLogin, action.payload);
-
-    console.log("Waiting Logout");
+    const isLoggedIn = Boolean(localStorage.getItem("access_token"));
+    if (!isLoggedIn) {
+      const action: PayloadAction<LoginPayload> = yield take(
+        authActions.login.type
+      );
+      yield fork(handleLogin, action.payload);
+    }
 
     yield take(authActions.logout.type);
-    console.log(
-      "🚀 ~ function*WatchLoginFlow ~ authActions.logout.type:",
-      authActions.logout.type
-    );
-
-    yield fork(handleLogout);
+    // call() will wait
+    yield call(handleLogout);
   }
 }
 

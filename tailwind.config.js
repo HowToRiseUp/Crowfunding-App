@@ -6,7 +6,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'shadowP': '0 4px 4px 0 rgb(0 0 0 / 0.25);',
+      }
+    },
     colors: {
       primary: '#1DC071',
       secondary: '#6F49FD',
@@ -30,5 +34,6 @@ export default {
       transparent: 'transparent',
     }
   },
+
   plugins: [],
 }

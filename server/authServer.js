@@ -46,6 +46,12 @@ app.get("/me", verifyToken, (req, res) => {
   if (!user) return res.sendStatus(401);
   res.json(user);
 });
+app.get("/memay", (req, res) => {
+
+  res.json({
+    data: '1111111'
+  });
+});
 app.post("/auth/login", (req, res) => {
   const email = req.body.email;
   const user = users.find((user) => {

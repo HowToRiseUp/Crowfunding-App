@@ -37,15 +37,14 @@ const SignInPage = () => {
     const onSubmit = async (data: FormValues) => {
         dispatch(authActions.login(
             {
-                email: '',
-                password: '',
+                email: 'a',
+                password: 'a',
             }
         ))
         console.log(data);
     }
     return (
         <>
-            <Button type="button" onClick={() => { dispatch(authActions.logout()) }} >Logout</Button>
             <LayoutAuthentication header="Welcome Back!">
                 <p className="text-center text-text3 text-xs lg:text-sm mb-[25px] lg:mb-[30px]">Dont have an account? <Link className="text-primary" to="/sign-up">Sign up</Link></p>
                 <div className="cursor-pointer flex items-center justify-center gap-[10px] border dark:border-darkStroke border-stock rounded-[10px] mb-[10px] ">
