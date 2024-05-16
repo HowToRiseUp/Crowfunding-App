@@ -1,9 +1,12 @@
+import Header from "../components/common/Header";
 import LayoutDashboard from "../layout/LayoutDashboard";
+import CampaignGrid from "../models/campaign/CampaignGrid";
 
 const DashboardPage = () => {
     return (
         <LayoutDashboard>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam vel minus, ea dolorem repellat laboriosam alias similique provident, inventore quibusdam sunt voluptatem distinctio dignissimos, tempore commodi. Distinctio at quas voluptates.
+            <Header>Popular Campaign</Header>
+            <CampaignGrid></CampaignGrid>
         </LayoutDashboard>
     );
 };

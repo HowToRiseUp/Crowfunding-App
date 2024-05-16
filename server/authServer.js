@@ -44,10 +44,10 @@ app.get("/me", verifyToken, (req, res) => {
     return user.id === req.userId;
   });
   if (!user) return res.sendStatus(401);
-  res.json(user);
+  res.json({ user: user });
 });
-app.get("/memay", (req, res) => {
 
+app.get("/memay", (req, res) => {
   res.json({
     data: '1111111'
   });

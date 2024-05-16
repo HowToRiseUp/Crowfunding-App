@@ -1,4 +1,4 @@
-export interface Campaign {
+export interface CampaignItem {
   title: string;
   short_description: string;
   goal: string;

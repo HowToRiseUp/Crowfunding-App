@@ -11,7 +11,9 @@ const LayoutDashboard = ({ children }: LayoutDashboardProps) => {
             <DashboardTopbar></DashboardTopbar>
             <div className="flex gap-10 items-start justify-start">
                 <DashboardSidebar></DashboardSidebar>
-                {children}
+                <div className="flex-1">
+                    {children}
+                </div>
             </div>
         </div>
     );
