@@ -1,9 +1,9 @@
-import { Campaign } from "../models/campaigns";
+import { CampaignItem } from "../models/campaigns";
 import { ListResponse } from "../models/common";
 import axiosClient from "./axiosApi";
 
 const CampaignsApi = {
-  getAll(): Promise<ListResponse<Campaign>> {
+  getAll(): Promise<ListResponse<CampaignItem>> {
     const url = "campaigns";
     return axiosClient.get(url, {
       params: {
@@ -12,13 +12,13 @@ const CampaignsApi = {
       },
     });
   },
-  add(data: Campaign): Promise<ListResponse<Campaign>> {
+  add(data: CampaignItem): Promise<ListResponse<CampaignItem>> {
     const url = "campaigns";
     return axiosClient.post(url, {
       data,
     });
   },
-  update(data: Campaign): Promise<ListResponse<Campaign>> {
+  update(data: CampaignItem): Promise<ListResponse<CampaignItem>> {
     const url = "campaigns";
     return axiosClient.patch(url, {
       data,
