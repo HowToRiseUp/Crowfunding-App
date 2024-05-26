@@ -47,7 +47,10 @@
   .relative input:focus + .error-message {
     color: transparent;
   }
-  .actives div span svg path {
-    stroke: #1dc071; /* Desired active color */
+  a.active svg path[fill^="#A2A"] {
+    fill: #1dc071;
+  }
+  a.active svg path[stroke^="#A2A"] {
+    stroke: #1dc071;
   }
 }

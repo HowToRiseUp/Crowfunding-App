@@ -4,6 +4,7 @@ import LayoutDashboard from "../layout/LayoutDashboard";
 import CampaignGrid from "../models/campaign/CampaignGrid";
 import { useEffect } from "react";
 import { userAction } from "../features/users/UserSlice";
+import CampaignItem from "../models/campaign/CampaignItem";
 
 const DashboardPage = () => {
     const dispatch = useDispatch()
@@ -11,10 +12,15 @@ const DashboardPage = () => {
         dispatch(userAction.fetchUserList())
     }, [dispatch])
     return (
-        <LayoutDashboard>
+        <>
             <Header>Popular Campaign</Header>
-            <CampaignGrid></CampaignGrid>
-        </LayoutDashboard>
+            <CampaignGrid>
+                <CampaignItem></CampaignItem>
+                <CampaignItem></CampaignItem>
+                <CampaignItem></CampaignItem>
+                <CampaignItem></CampaignItem>
+            </CampaignGrid>
+        </>
     );
 };
 

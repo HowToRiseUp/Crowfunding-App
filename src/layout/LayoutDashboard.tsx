@@ -1,18 +1,18 @@
-import DashboardSidebar from "../models/dashboard/DashboardSidebar";
+
+import React from "react";
 import DashboardTopbar from "../models/dashboard/DashboardTopbar";
+import DashboardSidebar from "../models/dashboard/DashboardSidebar";
+import { Outlet } from "react-router-dom";
 
-interface LayoutDashboardProps {
-    children: React.ReactNode
-}
-
-const LayoutDashboard = ({ children }: LayoutDashboardProps) => {
+const LayoutDashboard = () => {
     return (
-        <div className="p-10">
+        <div className="min-h-screen p-10 bg-lite">
             <DashboardTopbar></DashboardTopbar>
-            <div className="flex gap-10 items-start justify-start">
+            <div className="flex items-start gap-x-10">
                 <DashboardSidebar></DashboardSidebar>
                 <div className="flex-1">
-                    {children}
+                    <Outlet></Outlet>
+
                 </div>
             </div>
         </div>
